@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "test",
+      "description": "test",
+      "price": 0,
+      "pictureUrl": "",
+      "productType": "",
+      "productBrand": ""
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "product name",
+      "description": "",
+      "price": 0,
+      "pictureUrl": "",
+      "productType": "",
+      "productBrand": ""
+    }
+  ],
+
+  "brands": [
+    { "id": 1, "name": "brand 1" },
+    { "id": 2, "name": "brand 2" },
+    { "id": 3, "name": "brand 3" }
+  ],
+  "types": [
+    { "id": 1, "name": "type 1" },
+    { "id": 2, "name": "type 2" },
+    { "id": 3, "name": "type 3" }
+  ]
+}

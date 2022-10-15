@@ -14,6 +14,7 @@ export class ShopService {
 
   base_url = 'http://localhost:3000/';
 
+
   getProduct(ShopParams: ShopParams) {
     let params = new HttpParams();
     if (ShopParams.brandId) {
@@ -24,6 +25,9 @@ export class ShopService {
     }
     if (ShopParams.sort) {
       params = params.append('sort', ShopParams.sort);
+    }
+    if (sort) {
+      params = params.append('sort', sort);
     }
     return this.http
       .get<IProduct[]>(this.base_url + 'products', {

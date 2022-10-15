@@ -14,21 +14,23 @@ export class ShopService {
 
   base_url = 'http://localhost:3000/';
 
-
   getProduct(ShopParams: ShopParams) {
     let params = new HttpParams();
-    if (ShopParams.brandId) {
+    if (ShopParams.brandId !== 0) {
       params = params.append('brandId', ShopParams.brandId.toString());
     }
-    if (ShopParams.typeId) {
+    if (ShopParams.typeId !== 0) {
       params = params.append('typeId', ShopParams.typeId.toString());
     }
-    if (ShopParams.sort) {
-      params = params.append('sort', ShopParams.sort);
+
+    if (ShopParams.search) {
+      params = params.append('search', ShopParams.search);
     }
-    if (sort) {
-      params = params.append('sort', sort);
-    }
+
+    params = params.append('sort', ShopParams.sort);
+    params = params.append('pageIndex', ShopParams.pageNumber.toString());
+    params = params.append('pageIndex', ShopParams.pageSize.toString());
+
     return this.http
       .get<IProduct[]>(this.base_url + 'products', {
         observe: 'response',

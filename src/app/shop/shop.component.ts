@@ -16,6 +16,7 @@ export class ShopComponent implements OnInit {
   brands: IBrand[];
   types: IProductType[];
   shopParams = new ShopParams();
+
   constructor(private shopService: ShopService) {}
 
   ngOnInit(): void {

@@ -12,10 +12,25 @@ import { ShopService } from './shop.service';
 })
 export class ShopComponent implements OnInit {
   products: any;
-  brands: IBrand[];
-  types: IProductType[];
-  brandIdSelected: number;
-  typeIdSelected: number;
+  brands: IBrand[] = [];
+  types: IProductType[] = [];
+  brandIdSelected: any;
+  typeIdSelected: any;
+  sortSelected = 'name';
+  sortOptions = [
+    {
+      name: 'Alphabetical',
+      value: 'name',
+    },
+    {
+      name: 'Price: Low to High',
+      value: 'priceAsc',
+    },
+    {
+      name: 'Price: High to Low',
+      value: 'priceDesc',
+    },
+  ];
   constructor(private shopService: ShopService) {}
 
   ngOnInit(): void {
@@ -26,7 +41,7 @@ export class ShopComponent implements OnInit {
 
   getProducts() {
     this.shopService
-      .getProduct(this.brandIdSelected, this.typeIdSelected)
+      .getProduct(this.brandIdSelected, this.typeIdSelected, this.sortSelected)
       .subscribe(
         (response) => {
           this.products = response;
@@ -61,12 +76,16 @@ export class ShopComponent implements OnInit {
     );
   }
 
-  onBrandSelected(brandId: number) {
+  onBrandSelected(brandId?: number) {
     this.brandIdSelected = brandId;
     this.getProducts();
   }
-  onTypeSelected(typeId: number) {
+  onTypeSelected(typeId?: number) {
     this.typeIdSelected = typeId;
+    this.getProducts();
+  }
+  onSortSelected(sort: any) {
+    this.sortSelected = sort.value;
     this.getProducts();
   }
 }

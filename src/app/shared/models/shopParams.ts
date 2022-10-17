@@ -1,8 +1,8 @@
 export class ShopParams {
-  brandId = 0;
-  typeId = 0;
-  sort = 'name';
-  pageNumber = 1;
-  pageSize = 6;
-  search: any;
+  brandId?: any = 0;
+  typeId?: any = 0;
+  sort?: any = 'name';
+  pageNumber?: any = 1;
+  pageSize?: any = 6;
+  search?: any;
 }

@@ -44,12 +44,11 @@ export class ShopComponent implements OnInit {
 
   getProducts() {
     this.shopService.getProduct(this.shopParams).subscribe(
-      (response) => {
+      (response: any) => {
         this.products = response;
-        this.shopParams.pageNumber = 1;
+        this.shopParams.pageNumber = 5;
         this.shopParams.pageSize = 5;
-        this.totalCount = 1;
-        console.log(this.products);
+        this.totalCount = 6;
       },
       (error) => {
         console.log(error);

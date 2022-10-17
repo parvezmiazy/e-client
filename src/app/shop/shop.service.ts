@@ -17,10 +17,10 @@ export class ShopService {
   getProduct(ShopParams: ShopParams) {
     let params = new HttpParams();
     if (ShopParams.brandId !== 0) {
-      params = params.append('brandId', ShopParams.brandId.toString());
+      params = params.append('brandId', ShopParams.brandId);
     }
     if (ShopParams.typeId !== 0) {
-      params = params.append('typeId', ShopParams.typeId.toString());
+      params = params.append('typeId', ShopParams.typeId);
     }
 
     if (ShopParams.search) {
@@ -28,11 +28,11 @@ export class ShopService {
     }
 
     params = params.append('sort', ShopParams.sort);
-    params = params.append('pageIndex', ShopParams.pageNumber.toString());
-    params = params.append('pageIndex', ShopParams.pageSize.toString());
+    params = params.append('pageIndex', ShopParams.pageNumber);
+    params = params.append('pageIndex', ShopParams.pageSize);
 
     return this.http
-      .get<IProduct[]>(this.base_url + 'products', {
+      .get<IPagination | null>(this.base_url + 'products', {
         observe: 'response',
         params,
       })

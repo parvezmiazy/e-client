@@ -13,7 +13,7 @@ import { ShopService } from './shop.service';
 })
 export class ShopComponent implements OnInit {
   @ViewChild('search', { static: false })
-  searchTerm!: ElementRef;
+  searchTerm: any = ElementRef;
   products: any;
   shopParams = new ShopParams();
   brands: IBrand[] = [];
@@ -102,6 +102,8 @@ export class ShopComponent implements OnInit {
 
   onSearch() {
     this.shopParams.search = this.searchTerm.nativeElement.value;
+    this.shopParams.pageNumber = 1;
+    console.log(this.shopParams.search);
     this.getProducts();
   }
 
